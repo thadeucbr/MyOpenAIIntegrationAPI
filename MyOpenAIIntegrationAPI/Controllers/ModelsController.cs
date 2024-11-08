@@ -16,14 +16,13 @@ public class ModelsController : ControllerTemplate
     [HttpGet()]
     public async Task<IActionResult> GetModels()
     {
-        var response = await _httpClient.GetAsync("https://api.openai.com/v1/models");
+        var response = await _httpClient.GetAsync($"{this.BaseUrl}/models");
         if (response.IsSuccessStatusCode)
         {
             var modelsData = JsonSerializer.Deserialize<ModelsResponse>(await response.Content.ReadAsStringAsync());
-                var models = modelsData.data.Select(m => m.id).ToList();
+            var models = modelsData?.data.Select(m => m.id).ToList();
             return Ok(models);
         }
-
         return StatusCode((int)response.StatusCode, await response.Content.ReadAsStreamAsync());
     }
 }

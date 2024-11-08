@@ -6,7 +6,7 @@ using MyOpenAIIntegrationAPI.Models;
 
 namespace MyOpenAIIntegrationAPI.Controllers;
 
-[Route("api/[controller]")]
+[Route("v1/[controller]")]
 [ApiController]
 public class OpenAiController : ControllerBase
 {
