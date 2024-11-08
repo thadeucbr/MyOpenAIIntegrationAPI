@@ -1,0 +1,18 @@
+﻿# Ignore .env files
+.env
+
+# Ignore build results
+bin/
+obj/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Visual Studio Code files
+.vscode/
+
+# Ignore Rider specific files
+.idea/
