@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using MyOpenAIIntegrationAPI.Models;
 using MyOpenAIIntegrationAPI.TemplateClass;
+using MongoDB.Bson;
+using System.IO;
+using MyOpenAIIntegrationAPI.Database;
 
 namespace MyOpenAIIntegrationAPI.Controllers;
 
@@ -9,10 +12,11 @@ namespace MyOpenAIIntegrationAPI.Controllers;
 [ApiController]
 public class ImagesController : ControllerTemplate
 {
-    private const string ImagesFolder = "assets/images";
+    private readonly ImageRepository _imageRepository;
 
-    public ImagesController(HttpClient httpClient) : base(httpClient)
+    public ImagesController(HttpClient httpClient, ImageRepository imageRepository) : base(httpClient)
     {
+        _imageRepository = imageRepository;
     }
 
     [HttpPost("generations")]
@@ -25,26 +29,30 @@ public class ImagesController : ControllerTemplate
             var imageResponse = JsonSerializer.Deserialize<GenerateImageResponse>(content);
             var imageUrl = imageResponse?.data[0].url;
             var createdTimestamp = imageResponse?.created;
+            var revisedPrompt = imageResponse?.data[0].revised_prompt;
             
             using (var imageClient = new HttpClient())
             {
                 await using (var imageResponseStream = await imageClient.GetStreamAsync(imageUrl))
                 {
-                    if (!Directory.Exists(ImagesFolder))
+                    using (var memoryStream = new MemoryStream())
                     {
-                        Directory.CreateDirectory(ImagesFolder);
-                    }
-
-                    var fileName = $"{createdTimestamp}.jpg";
-                    var filePath = Path.Combine(ImagesFolder, fileName);
-
-                    await using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
-                    {
-                        await imageResponseStream.CopyToAsync(fileStream);
+                        await imageResponseStream.CopyToAsync(memoryStream);
+                        var imageData = memoryStream.ToArray();
+                        
+                        var imageModel = new ImageModel
+                        {
+                            Url = imageUrl,
+                            Created = createdTimestamp ?? 0,
+                            Data = imageData,
+                            RevisedPrompt = revisedPrompt
+                        };
+                        await _imageRepository.CreateAsync(imageModel);
                     }
                 }
             }
         }
+
         return StatusCode((int)response.StatusCode, await response.Content.ReadAsStringAsync());
     }
 }

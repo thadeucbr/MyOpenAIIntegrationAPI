@@ -34,3 +34,9 @@ C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI
 C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\DotNetEnv.dll
 C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\Sprache.dll
 C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\obj\Debug\net8.0\MyOpenAIIntegrationAPI.sourcelink.json
+C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\Snappier.dll
+C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\ZstdSharp.dll
