@@ -7,12 +7,8 @@ namespace MyOpenAIIntegrationAPI.Controllers;
 
 [Route("v1/completions")]
 [ApiController]
-public class CompletionsController : ControllerTemplate
+public class CompletionsController(HttpClient httpClient) : ControllerTemplate(httpClient)
 {
-    public CompletionsController(HttpClient httpClient) : base(httpClient)
-    {
-    }
-
     [HttpPost()]
     public async Task<IActionResult> GenerateText([FromBody] OpenAICreateCompletionRequest request)
     {

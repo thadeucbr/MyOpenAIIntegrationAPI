@@ -7,12 +7,8 @@ namespace MyOpenAIIntegrationAPI.Controllers;
 
 [Route("v1/models")]
 [ApiController]
-public class ModelsController : ControllerTemplate
+public class ModelsController(HttpClient httpClient) : ControllerTemplate(httpClient)
 {
-    public ModelsController(HttpClient httpClient) : base(httpClient)
-    {
-    }
-
     [HttpGet()]
     public async Task<IActionResult> GetModels()
     {
