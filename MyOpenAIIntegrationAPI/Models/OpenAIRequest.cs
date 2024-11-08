@@ -1,6 +1,6 @@
 ﻿namespace MyOpenAIIntegrationAPI.Models;
 
-public class OpenAIRequest
+public class OpenAICreateCompletionRequest
 {
     public string Model { get; set; }
     public string Prompt { get; set; }

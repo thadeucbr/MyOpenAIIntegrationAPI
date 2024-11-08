@@ -57,7 +57,7 @@ public class OpenAiController : ControllerBase
         return Ok(models);
     }
     [HttpPost("completions")]
-    public async Task<IActionResult> GenerateText([FromBody] OpenAIRequest request)
+    public async Task<IActionResult> GenerateText([FromBody] OpenAICreateCompletionRequest request)
     {
         var validModels = await GetValidModels();
         if (validModels.Count < 1)

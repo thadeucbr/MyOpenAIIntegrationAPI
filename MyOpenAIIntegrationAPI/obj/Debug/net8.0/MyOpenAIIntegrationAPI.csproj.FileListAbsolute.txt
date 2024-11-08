@@ -33,3 +33,4 @@ C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI
 C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\System.Net.Http.Json.dll
 C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\DotNetEnv.dll
 C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\bin\Debug\net8.0\Sprache.dll
+C:\Users\Thadeu Proa\RiderProjects\MyOpenAIIntegrationAPI\MyOpenAIIntegrationAPI\obj\Debug\net8.0\MyOpenAIIntegrationAPI.sourcelink.json
