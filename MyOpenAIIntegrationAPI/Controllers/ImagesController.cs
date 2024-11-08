@@ -55,4 +55,29 @@ public class ImagesController : ControllerTemplate
 
         return StatusCode((int)response.StatusCode, await response.Content.ReadAsStringAsync());
     }
+
+    [HttpGet()]
+    public async Task<IActionResult> ListImages()
+    {
+        var images = await _imageRepository.GetAllAsync();
+        var response = images.Select(image => new
+        {
+            Id = image.Created,
+            RevisedPrompt = image.RevisedPrompt
+        }).ToList();
+        return Ok(response);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetImageById(long id)
+    {
+        Console.WriteLine(id);
+        var image = await _imageRepository.GetByTimestampAsync(id);
+        if (image == null)
+        {
+            return NotFound("Image not found.");
+        }
+
+        return File(image.Data, "image/jpeg");
+    }
 }

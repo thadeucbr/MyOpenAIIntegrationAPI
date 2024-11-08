@@ -24,4 +24,9 @@ public class ImageRepository
 
     public async Task CreateAsync(ImageModel image) =>
         await _images.InsertOneAsync(image);
+    
+    public async Task<ImageModel> GetByTimestampAsync(long timestamp)
+    {
+        return await _images.Find(x => x.Created == timestamp).FirstOrDefaultAsync();
+    }
 }
