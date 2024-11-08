@@ -5,7 +5,7 @@ using MyOpenAIIntegrationAPI.TemplateClass;
 
 namespace MyOpenAIIntegrationAPI.Controllers;
 
-[Route("api/completions")]
+[Route("v1/completions")]
 [ApiController]
 public class CompletionsController : ControllerTemplate
 {
@@ -16,7 +16,7 @@ public class CompletionsController : ControllerTemplate
     [HttpPost()]
     public async Task<IActionResult> GenerateText([FromBody] OpenAICreateCompletionRequest request)
     {
-        var validModels = await GetValidModels(); // Agora você pode usar diretamente o método herdado
+        var validModels = await GetValidModels();
         if (validModels.Count < 1)
         {
             return NotFound("Models are not available, try again later.");
@@ -38,7 +38,7 @@ public class CompletionsController : ControllerTemplate
             max_tokens = request.MaxTokens > 0 ? request.MaxTokens : 200,
             temperature = request.Temperature >= 0 ? request.Temperature : 0.7
         };
-        var response = await _httpClient.PostAsJsonAsync("https://api.openai.com/v1/completions", requestData);
+        var response = await _httpClient.PostAsJsonAsync($"{this.BaseUrl}/completions", requestData);
 
         if (response.IsSuccessStatusCode)
         {
