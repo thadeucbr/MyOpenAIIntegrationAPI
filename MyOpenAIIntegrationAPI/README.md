@@ -21,8 +21,8 @@ Este projeto tem como objetivo criar uma API intermediária utilizando .NET, que
 
 1. **Clone o Repositório:**
    ```bash
-   git clone https://github.com/seu_usuario/seu_repositorio.git
-   cd seu_repositorio
+   git clone https://github.com/thadeucbr/MyOpenAIIntegrationAPI.git
+   cd MyOpenAIIntegrationAPI
    ```
 
 2. **Criar um Arquivo `.env`:**
