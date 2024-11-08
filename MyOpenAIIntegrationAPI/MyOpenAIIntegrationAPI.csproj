@@ -29,6 +29,7 @@
 
     <ItemGroup>
       <None Remove="assets\**" />
+      <None Remove="README.md" />
     </ItemGroup>
 
 </Project>
