@@ -1,18 +1,72 @@
-﻿# Ignore .env files
-.env
+﻿# Visual Studio Code
+.vscode/
+*.code-workspace
 
-# Ignore build results
-bin/
-obj/
+# Rider
+.idea/
+*.sln.iml
+*.sln.DotSettings
+*.sln.DotSettings.user
+*.sln.DotSettings*.user
+*.userprefs
 
-# Ignore user-specific files
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Ll]ogs/
+*.dll
+*.exe
+*.pdb
+*.app
+*.apk
+*.ipa
+*.mdb
+*.db
+*.db-journal
+
+# NuGet Packages
+*.nupkg
+packages/
+*.nuspec
+
+# Visual Studio
+.vs/
 *.suo
 *.user
-*.userosscache
-*.sln.docstates
+*.userprefs
+*.sln.ide
 
-# Ignore Visual Studio Code files
-.vscode/
-
-# Ignore Rider specific files
+# Rider specific files
 .idea/
+*.sln.iml
+
+# Publish output
+publish/
+
+# Temporary files
+*.tmp
+*.temp
+*.tlog
+*.log
+*.cache
+*.vspscc
+*.vssscc
+
+# OS generated files
+Thumbs.db
+.DS_Store
+ehthumbs.db
+Desktop.ini
+
+# Others
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# Environment Variables
+*.env
+*.env.local
