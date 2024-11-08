@@ -8,7 +8,7 @@ namespace MyOpenAIIntegrationAPI.TemplateClass;
 public class ControllerTemplate : ControllerBase
 {
     protected readonly HttpClient _httpClient;
-
+    protected readonly string? BaseUrl = Environment.GetEnvironmentVariable("OPENAI_BASE_URL");
     public ControllerTemplate(HttpClient httpClient)
     {
         _httpClient = httpClient;
